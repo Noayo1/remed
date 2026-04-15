@@ -1,0 +1,234 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.hero__visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* =============================================
+   video_box — video background
+   ============================================= */
+.hero__video-box {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero__video-box iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.78vh;
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+}
+
+/* =============================================
+   img_box — model image, right side, larger
+   ============================================= */
+.hero__img-box {
+  position: absolute;
+  bottom: -14%;
+  right: 15%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero__model-img {
+  max-height: 115%;
+  position: relative;
+  z-index: 5;
+}
+
+/* Outer purple glow — REMED's .img_box div */
+.hero__img-glow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1050px;
+  height: 930px;
+  background: rgba(174, 106, 234, 0.5);
+  filter: blur(50px);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Inner white circle — REMED's .img_box div::before */
+.hero__img-glow::before {
+  content: '';
+  display: block;
+  width: 760px;
+  height: 730px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+}
+
+/* Bottom fade mask */
+.hero__img-mask {
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  right: -50%;
+  height: 100px;
+  background: linear-gradient(to top, var(--color-bg), transparent);
+  z-index: 3;
+}
+
+/* =============================================
+   txt_box — left aligned, matching REMED spacing
+   ============================================= */
+.hero__txt-box {
+  position: relative;
+  z-index: 3;
+  text-align: left;
+  max-width: 750px;
+  margin-left: 8%;
+  padding: 0 20px;
+}
+
+.hero__logo-title {
+  margin-bottom: 0;
+}
+
+.hero__logo-img {
+  width: clamp(360px, 42vw, 560px);
+  height: auto;
+}
+
+.hero__subtitle {
+  font-size: 2.18em;
+  color: #fff;
+  font-weight: 300;
+  line-height: 1.28em;
+  margin-top: 50px;
+  margin-bottom: 32px;
+  white-space: nowrap;
+}
+
+.hero__subtitle strong {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  color: var(--color-gray);
+  opacity: 0.6;
+}
+
+/* =============================================
+   Responsive — matching REMED breakpoints
+   ============================================= */
+@media (max-width: 1320px) {
+  .hero__subtitle {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero__subtitle {
+    font-size: 1.5em;
+    margin-top: 30px;
+  }
+  .hero__txt-box {
+    margin-left: 5%;
+    max-width: 450px;
+  }
+
+  .hero__img-box {
+    right: 0;
+  }
+
+  .hero__model-img {
+    max-width: 100%;
+  }
+
+  /* REMED uses scale(0.8) at 1024px */
+  .hero__img-glow {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero__visual {
+    align-items: flex-start;
+    padding-top: 120px;
+  }
+
+  .hero__txt-box {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: center;
+    max-width: 100%;
+    position: relative;
+    z-index: 5;
+  }
+
+  .hero__cta {
+    justify-content: center;
+  }
+
+  .hero__img-box {
+    right: 50%;
+    transform: translateX(50%);
+    opacity: 0.35;
+  }
+
+  .hero__model-img {
+    max-width: 100%;
+  }
+
+  /* REMED uses scale(0.45) at 767px */
+  .hero__img-glow {
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+
+  .hero__subtitle {
+    font-size: 1.3em;
+    margin-top: 15px;
+  }
+
+  .hero__subtitle br {
+    display: none;
+  }
+
+  .hero__scroll-indicator {
+    bottom: 20px;
+  }
+}
