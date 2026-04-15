@@ -58,8 +58,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Button variant="outlined" href="#products">PRODUCT A</Button>
-            <Button variant="outlined" href="#products">PRODUCT B</Button>
+            <Button variant="outlined" to="/product-a">PRODUCT A</Button>
+            <Button variant="outlined" to="/product-b">PRODUCT B</Button>
           </motion.div>
         </div>
       </div>

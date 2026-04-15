@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { HiOutlineBars3, HiXMark, HiOutlineGlobeAlt, HiChevronUp, HiChevronDown } from 'react-icons/hi2'
 import './Header.css'
@@ -69,9 +70,9 @@ export default function Header() {
       <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
         <div className="header__inner">
           <h1 className="header__logo">
-            <a href="#" title="Go to main">
+            <Link to="/" title="Go to main">
               <span className="text-hidden">MEDITECH</span>
-            </a>
+            </Link>
           </h1>
 
           <nav className="header__nav">
